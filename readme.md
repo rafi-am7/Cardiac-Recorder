@@ -31,20 +31,6 @@
 
 
 
+
 ## Application Designs
-![Splash Screen](https://user-images.githubusercontent.com/70595051/175779094-192973cc-b357-4a74-9b30-9d4282cc2f82.jpg)
-![Home Screen](https://user-images.githubusercontent.com/70595051/175779135-6d9e236e-a242-456a-a9e9-ae98e412ac82.jpg)
-
-![Insert Records](https://user-images.githubusercontent.com/70595051/175779177-1dc9ba50-bbd2-4589-ad31-1bbeb1814b03.jpg)
-![Update Records](https://user-images.githubusercontent.com/70595051/175779190-799c2976-12fa-4392-b4f4-5f72f5bc5377.jpg)
-
-![Show Records](https://user-images.githubusercontent.com/70595051/175779210-95a317e8-9973-41b3-950e-41d75de65e69.jpg)
-
-
-
-## Project Screenshots
-<img src="https://user-images.githubusercontent.com/70595051/175779094-192973cc-b357-4a74-9b30-9d4282cc2f82.jpg" width="180" height="300">
-<img src="https://user-images.githubusercontent.com/70595051/175779135-6d9e236e-a242-456a-a9e9-ae98e412ac82.jpg" width="180" height="300">
-<img src="https://user-images.githubusercontent.com/70595051/175779177-1dc9ba50-bbd2-4589-ad31-1bbeb1814b03.jpg" width="180" height="300">
-<img src="https://user-images.githubusercontent.com/70595051/175779190-799c2976-12fa-4392-b4f4-5f72f5bc5377.jpg" width="180" height="300">
-<img src="https://user-images.githubusercontent.com/70595051/175779210-95a317e8-9973-41b3-950e-41d75de65e69.jpg" width="180" height="300">
+<img src="https://user-images.githubusercontent.com/70595051/175779094-192973cc-b357-4a74-9b30-9d4282cc2f82.jpg" width="180" height="300"><img src="https://user-images.githubusercontent.com/70595051/175779135-6d9e236e-a242-456a-a9e9-ae98e412ac82.jpg" width="180" height="300"><img src="https://user-images.githubusercontent.com/70595051/175779177-1dc9ba50-bbd2-4589-ad31-1bbeb1814b03.jpg" width="180" height="300"><img src="https://user-images.githubusercontent.com/70595051/175779190-799c2976-12fa-4392-b4f4-5f72f5bc5377.jpg" width="180" height="300"><img src="https://user-images.githubusercontent.com/70595051/175779210-95a317e8-9973-41b3-950e-41d75de65e69.jpg" width="180" height="300">
