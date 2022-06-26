@@ -27,7 +27,7 @@
 
 
 ## UML Design
-(![UML drawio](https://user-images.githubusercontent.com/70595051/175806768-9cc19f16-3bfc-4dcf-aed7-67b2399eb339.png)
+![UML Diagram](https://user-images.githubusercontent.com/70595051/175806964-706c0575-43ca-4bcc-aa09-aa1f34ff8dac.png)
 
 
 ## Application Designs
