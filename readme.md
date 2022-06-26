@@ -27,9 +27,7 @@
 
 
 ## UML Design
-![UML Design of Cardiac Recorder]()
-
-
+(![UML drawio](https://user-images.githubusercontent.com/70595051/175806768-9cc19f16-3bfc-4dcf-aed7-67b2399eb339.png)
 
 
 ## Application Designs
