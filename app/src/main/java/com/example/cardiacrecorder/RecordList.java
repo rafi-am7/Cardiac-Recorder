@@ -26,7 +26,7 @@ public class RecordList {
         old_record =new Record(date,time,systolic,diastolic,heart_rate,comment);
     }
 
-    public void fetchListfromDB () {
+    public void fetchListromDB () {
 
     }
 }
