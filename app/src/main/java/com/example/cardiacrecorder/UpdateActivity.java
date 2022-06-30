@@ -1,31 +1,40 @@
 package com.example.cardiacrecorder;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class UpdateActivity extends AppCompatActivity {
 
-public class AddActivity extends AppCompatActivity {
-
-    Record record;
     EditText date,time,systolic,diastolic,heart_rate,comment;
     boolean isAllFieldsChecked = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_update);
 
-        date = findViewById(R.id.dateValue);
-        time = findViewById(R.id.timeValue);
-        systolic = findViewById(R.id.systolicValue);
-        diastolic = findViewById(R.id.diastolicValue);
-        heart_rate = findViewById(R.id.heartRateValue);
-        comment = findViewById(R.id.commentValue);
-        Button save_button = findViewById(R.id.savebutton);
+        Intent intent = getIntent();
+        Record record = intent.getParcelableExtra("Old record");
 
-        save_button.setOnClickListener(v -> {
+        date = findViewById(R.id.DateValue2);
+        time = findViewById(R.id.TimeValue2);
+        systolic = findViewById(R.id.SystolicValue2);
+        diastolic = findViewById(R.id.DiastolicValue2);
+        heart_rate = findViewById(R.id.HeartRateValue2);
+        comment = findViewById(R.id.CommentValue2);
+        Button update_button = findViewById(R.id.updatebutton);
+
+        date.setText(record.getDate());
+        time.setText(record.getTime());
+        systolic.setText(record.getSystolic());
+        diastolic.setText(record.getDiastolic());
+        heart_rate.setText(record.getHeart_rate());
+        comment.setText(record.getComment());
+
+        update_button.setOnClickListener(v -> {
 
             // store the returned value of the dedicated function which checks
             // whether the entered data is valid or if any fields are left blank.
@@ -40,11 +49,12 @@ public class AddActivity extends AppCompatActivity {
                 record.setDiastolic(Integer.parseInt(diastolic.getText().toString()));
                 record.setHeart_rate(Integer.parseInt(heart_rate.getText().toString()));
                 record.setComment(comment.getText().toString());
-                Intent i = new Intent(AddActivity.this, MainActivity.class);
+                Intent i = new Intent(UpdateActivity.this, MainActivity.class);
                 i.putExtra("New Record", record);
                 startActivity(i);
             }
         });
+
     }
 
     private boolean CheckAllFields() {

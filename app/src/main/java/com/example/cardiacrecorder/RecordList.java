@@ -22,8 +22,8 @@ public class RecordList {
         }
     }
 
-    public void updateRecord (Record old_record,String date, String time, int systolic, int diastolic, int heart_rate, String comment) {
-        old_record =new Record(date,time,systolic,diastolic,heart_rate,comment);
+    public void updateRecord (Record old_record,Record new_record) {
+        old_record = new_record;
     }
 
     public void fetchListromDB () {
