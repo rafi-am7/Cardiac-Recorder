@@ -168,11 +168,12 @@
     <EditText
         android:id="@+id/commentValue"
         android:layout_width="fill_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/rounded_text_field"
+        android:backgroundTint="@color/white"
         android:hint="Comment"
         android:inputType="textMultiLine"
         android:padding="7dp"
@@ -181,18 +182,25 @@
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/comment" />
 
-    <Button
-        android:id="@+id/savebutton"
+    <FrameLayout
+        android:id="@+id/updateFrameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
         android:background="@drawable/rounded_text_field"
-        android:paddingLeft="40dp"
-        android:paddingTop="3dp"
-        android:paddingRight="40dp"
-        android:paddingBottom="3dp"
-        android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commentValue" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#7A0D0D"
+        android:layout_marginBottom="27dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Add"
+            />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

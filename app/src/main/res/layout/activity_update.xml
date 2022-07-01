@@ -175,19 +175,27 @@
         app:layout_constraintStart_toStartOf="@+id/Header2"
         app:layout_constraintTop_toBottomOf="@+id/Comment2" />
 
-    <Button
-        android:id="@+id/updatebutton"
+
+    <FrameLayout
+        android:id="@+id/updateFrameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
         android:background="@drawable/rounded_text_field"
-        android:backgroundTint="#1DF4E0"
-        android:paddingLeft="60dp"
-        android:paddingTop="3dp"
-        android:paddingRight="60dp"
-        android:paddingBottom="3dp"
-        android:text="Update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CommentValue2" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#672A2A"
+        android:layout_marginBottom="27dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Update"
+            />
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
