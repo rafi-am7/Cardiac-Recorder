@@ -33,7 +33,7 @@ public class StartingActivity extends AppCompatActivity {
                                                       startActivity(i);
                                                       finish();
                                                   }
-                                              });
+                                              },3000);
 
     }
 

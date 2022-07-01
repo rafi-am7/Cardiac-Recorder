@@ -1,6 +1,9 @@
 package com.example.cardiacrecorder;
 
-public class Record {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Record implements Parcelable {
     //class elements
     private String date="01/01/2000";
     private String time="00.00";
@@ -18,6 +21,42 @@ public class Record {
         this.heart_rate = heart_rate;
         this.comment = comment;
     }
+
+    protected Record(Parcel in) {
+        date = in.readString();
+        time = in.readString();
+        systolic = in.readInt();
+        diastolic = in.readInt();
+        heart_rate = in.readInt();
+        comment = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(date);
+        dest.writeString(time);
+        dest.writeInt(systolic);
+        dest.writeInt(diastolic);
+        dest.writeInt(heart_rate);
+        dest.writeString(comment);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Record> CREATOR = new Creator<Record>() {
+        @Override
+        public Record createFromParcel(Parcel in) {
+            return new Record(in);
+        }
+
+        @Override
+        public Record[] newArray(int size) {
+            return new Record[size];
+        }
+    };
 
     //Getters
     public String getDate() {
