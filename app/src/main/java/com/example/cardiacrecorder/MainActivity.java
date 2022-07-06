@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 RecyclerView recyclerView;
 RecordAdapter recordAdapter;
+ArrayList<Record> recordsArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
