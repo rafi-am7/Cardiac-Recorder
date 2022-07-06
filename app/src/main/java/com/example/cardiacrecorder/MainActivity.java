@@ -3,6 +3,7 @@ package com.example.cardiacrecorder;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.cardiacrecorder.adapter.RecordAdapter;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,10 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Handler;
 import android.view.View;
 
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cardiacrecorder.databinding.ActivityMainBinding;
 
@@ -26,44 +29,31 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
+RecyclerView recyclerView;
+RecordAdapter recordAdapter;
+ArrayList<Record> recordsArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recyclerView = findViewById(R.id.rvRecords);
+/*
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("foo");
+        list.add("baar");
+        JSONArray jsArray = new JSONArray(list);
 
-        /*
+        JSONObject obj = ...
+        String jsonString = obj.toString(4);
 
-        //This part is just demo code for adding record, updating and deleting
-
-        private List<Record> records = new ArrayList<>();
-
-        //Adding record without a method
-        Intent intent = getIntent();
-        Record record = intent.getParcelableExtra("New Record");
-        records.add(record);
-
-        //updating a record
-        Record r1 = new Record("a","b",2,3,4,"dummy"); // assume that its an old record and needs to be modified
-        Intent i1 = new Intent(MainActivity.this,UpdateActivity.class);
-        i1.putExtra("Old record",r1);
-
-        Button b;
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(i1);
+        ArrayList<String> listdata = new ArrayList<String>();
+        JSONArray jArray = (JSONArray)jsonObject;
+        if (jArray != null) {
+            for (int i=0;i<jArray.length();i++){
+                listdata.add(jArray.getString(i));
             }
-        });
-
-        //view record after clicking on a record from the adapter/card view
-        Record r2 = new Record("a","b",2,3,4,"dummy"); // assume that its an old record and needs to be modified
-        Intent i2 = new Intent(MainActivity.this,UpdateActivity.class);
-        i1.putExtra("record",r2);
-
-        */
-
-
+        }*/
+        // recordAdapter = new RecordAdapter(this, ContextCompat.getColor(this,R.color.good),ContextCompat.getColor(this,R.color.normal),ContextCompat.getColor(this,R.color.critical),recordList);
     }
 
 
