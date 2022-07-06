@@ -59,7 +59,8 @@
                     app:autoSizeTextType="uniform" />
 
             </LinearLayout>
-        <Button
+
+            <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_edit_48px"

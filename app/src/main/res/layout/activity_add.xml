@@ -200,7 +200,7 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:background="?android:attr/selectableItemBackground"
-            android:text="Add"
+            android:text="Save"
             />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
