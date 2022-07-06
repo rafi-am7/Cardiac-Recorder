@@ -27,7 +27,7 @@ public class ViewActivity extends AppCompatActivity {
         time.setText(record.getTime());
         systolic.setText(record.getSystolic());
         diastolic.setText(record.getDiastolic());
-        heartRate.setText(record.getHeart_rate());
+        heartRate.setText(record.getHeartRate());
         comment.setText(record.getComment());
     }
 }

@@ -36,7 +36,23 @@ RecordAdapter recordAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.rvRecords);
-       // recordAdapter = new RecordAdapter(this, ContextCompat.getColor(this,R.color.good),ContextCompat.getColor(this,R.color.normal),ContextCompat.getColor(this,R.color.critical),recordList);
+/*
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("foo");
+        list.add("baar");
+        JSONArray jsArray = new JSONArray(list);
+
+        JSONObject obj = ...
+        String jsonString = obj.toString(4);
+
+        ArrayList<String> listdata = new ArrayList<String>();
+        JSONArray jArray = (JSONArray)jsonObject;
+        if (jArray != null) {
+            for (int i=0;i<jArray.length();i++){
+                listdata.add(jArray.getString(i));
+            }
+        }*/
+        // recordAdapter = new RecordAdapter(this, ContextCompat.getColor(this,R.color.good),ContextCompat.getColor(this,R.color.normal),ContextCompat.getColor(this,R.color.critical),recordList);
     }
 
 

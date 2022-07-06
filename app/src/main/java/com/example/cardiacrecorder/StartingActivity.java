@@ -25,8 +25,8 @@ public class StartingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
-        getSupportActionBar().hide();
-        boolean b = new Handler().postDelayed(new Runnable() {
+        //getSupportActionBar().hide();
+        new Handler().postDelayed(new Runnable() {
                                                   @Override
                                                   public void run() {
                                                       i = new Intent(StartingActivity.this, MainActivity.class);
