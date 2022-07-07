@@ -21,6 +21,14 @@ public class Record implements Parcelable {
         this.heartRate = heart_rate;
         this.comment = comment;
     }
+    public Record(String date, String time, int systolic, int diastolic, int heart_rate) {
+        this.date = date;
+        this.time = time;
+        this.systolic = systolic;
+        this.diastolic = diastolic;
+        this.heartRate = heart_rate;
+        this.comment = "";
+    }
 
     protected Record(Parcel in) {
         date = in.readString();

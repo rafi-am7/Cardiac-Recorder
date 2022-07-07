@@ -1,5 +1,6 @@
 package com.example.cardiacrecorder;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cardiacrecorder.databinding.ActivityMainBinding;
@@ -31,13 +33,34 @@ public class MainActivity extends AppCompatActivity {
 
 RecyclerView recyclerView;
 RecordAdapter recordAdapter;
+LinearLayoutManager linearLayoutManager;
+Record record;
+
 ArrayList<Record> recordsArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recordsArrayList = new ArrayList<>();
         recyclerView = findViewById(R.id.rvRecords);
+        linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        recordAdapter = new RecordAdapter(this,R.color.good,R.color.normal,R.color.critical,recordsArrayList);
+
+        recyclerView.setAdapter(recordAdapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        record = new Record("11-12-21","11:21",126,121,34);
+        recordsArrayList.add(record);
+        recordAdapter.notifyDataSetChanged();
+        //String date, String time, int systolic, int diastolic, int heart_rate, String comment
+
+
+
 /*
+                                    dailyBookingDT = i.getValue(DailyBookingDT.class);
+                                    roomListArray.add(dailyBookingDT);
+                                    mRoomRvAdapter.notifyDataSetChanged();
         ArrayList<String> list = new ArrayList<String>();
         list.add("foo");
         list.add("baar");

@@ -53,10 +53,10 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
     public void onBindViewHolder(@NonNull RecordAdapter.RecordViewHolder holder, int position) {
         if (!recordList.isEmpty()) record = recordList.get(position);
 
-        holder.dateTextView.setText(record.getDate());
-        holder.systolicTextView.setText(record.getSystolic());
-        holder.diastolicTextView.setText(record.getDiastolic());
-        holder.heartTextView.setText(record.getHeartRate());
+        holder.dateTextView.setText(""+record.getDate());
+        holder.systolicTextView.setText(""+record.getSystolic());
+        holder.diastolicTextView.setText(""+record.getDiastolic());
+        holder.heartTextView.setText(""+record.getHeartRate());
         if (record.getDiastolic()<80) {
             Drawable buttonDrawable = holder.containerCardView.getBackground();
             buttonDrawable = DrawableCompat.wrap(buttonDrawable);
@@ -169,8 +169,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             super(itemView);
             systolicTextView = itemView.findViewById(R.id.tvSystolic);
             diastolicTextView = itemView.findViewById(R.id.tvDiastolic);
-            dateTextView = itemView.findViewById(R.id.tvHeartRate);
-            heartTextView = itemView.findViewById(R.id.date);
+            dateTextView = itemView.findViewById(R.id.tvDate);
+            heartTextView = itemView.findViewById(R.id.tvHeartRate);
             containerCardView = itemView.findViewById(R.id.llContainerCardView);
 
             itemView.setOnClickListener(this);
