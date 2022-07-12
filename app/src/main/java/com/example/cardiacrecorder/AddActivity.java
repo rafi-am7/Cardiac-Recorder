@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AddActivity extends AppCompatActivity {
 
     Record record;
-    EditText date,time,systolic,diastolic,heart_rate,comment;
+    EditText date,time,systolic,diastolic,heartRate,comment;
     boolean isAllFieldsChecked = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +21,11 @@ public class AddActivity extends AppCompatActivity {
         time = findViewById(R.id.timeValue);
         systolic = findViewById(R.id.systolicValue);
         diastolic = findViewById(R.id.diastolicValue);
-        heart_rate = findViewById(R.id.heartRateValue);
+        heartRate = findViewById(R.id.heartRateValue);
         comment = findViewById(R.id.commentValue);
-        Button save_button = findViewById(R.id.savebutton);
+        Button saveButton = findViewById( R.id.addButton);
 
-        save_button.setOnClickListener(v -> {
+        saveButton.setOnClickListener(v -> {
 
             // store the returned value of the dedicated function which checks
             // whether the entered data is valid or if any fields are left blank.
@@ -38,7 +38,7 @@ public class AddActivity extends AppCompatActivity {
                 record.setTime(time.getText().toString());
                 record.setSystolic(Integer.parseInt(systolic.getText().toString()));
                 record.setDiastolic(Integer.parseInt(diastolic.getText().toString()));
-                record.setHeart_rate(Integer.parseInt(heart_rate.getText().toString()));
+                record.setHeart_rate(Integer.parseInt(heartRate.getText().toString()));
                 record.setComment(comment.getText().toString());
                 Intent i = new Intent(AddActivity.this, MainActivity.class);
                 i.putExtra("New Record", record);
@@ -84,17 +84,17 @@ public class AddActivity extends AppCompatActivity {
             return false;
         }
 
-        if (heart_rate.length() == 0) {
-            heart_rate.setError("This field is required");
+        if (heartRate.length() == 0) {
+            heartRate.setError("This field is required");
             return false;
         }
 
-        String s3 = heart_rate.getText().toString();
+        String s3 = heartRate.getText().toString();
         int n3 = Integer.parseInt(s3);
 
         if(n3<0)
         {
-            heart_rate.setError("Invalid data input");
+            heartRate.setError("Invalid data input");
             return false;
         }
 

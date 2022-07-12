@@ -25,13 +25,13 @@ public class UpdateActivity extends AppCompatActivity {
         diastolic = findViewById(R.id.DiastolicValue2);
         heart_rate = findViewById(R.id.HeartRateValue2);
         comment = findViewById(R.id.CommentValue2);
-        Button update_button = findViewById(R.id.updatebutton);
+        Button update_button = findViewById(R.id.updateButton);
 
         date.setText(record.getDate());
         time.setText(record.getTime());
         systolic.setText(record.getSystolic());
         diastolic.setText(record.getDiastolic());
-        heart_rate.setText(record.getHeart_rate());
+        heart_rate.setText(record.getHeartRate());
         comment.setText(record.getComment());
 
         update_button.setOnClickListener(v -> {

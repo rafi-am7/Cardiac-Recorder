@@ -9,7 +9,7 @@ public class Record implements Parcelable {
     private String time="00.00";
     private int systolic=0;
     private int diastolic=0;
-    private int heart_rate=0;
+    private int heartRate=0;
     private String comment="";
 
     //Constructor
@@ -18,7 +18,7 @@ public class Record implements Parcelable {
         this.time = time;
         this.systolic = systolic;
         this.diastolic = diastolic;
-        this.heart_rate = heart_rate;
+        this.heartRate = heart_rate;
         this.comment = comment;
     }
 
@@ -27,7 +27,7 @@ public class Record implements Parcelable {
         time = in.readString();
         systolic = in.readInt();
         diastolic = in.readInt();
-        heart_rate = in.readInt();
+        heartRate = in.readInt();
         comment = in.readString();
     }
 
@@ -37,7 +37,7 @@ public class Record implements Parcelable {
         dest.writeString(time);
         dest.writeInt(systolic);
         dest.writeInt(diastolic);
-        dest.writeInt(heart_rate);
+        dest.writeInt(heartRate);
         dest.writeString(comment);
     }
 
@@ -75,8 +75,8 @@ public class Record implements Parcelable {
         return diastolic;
     }
 
-    public int getHeart_rate() {
-        return heart_rate;
+    public int getHeartRate() {
+        return heartRate;
     }
 
     public String getComment() {
@@ -101,7 +101,7 @@ public class Record implements Parcelable {
     }
 
     public void setHeart_rate(int heart_rate) {
-        this.heart_rate = heart_rate;
+        this.heartRate = heart_rate;
     }
 
     public void setComment(String comment) {
