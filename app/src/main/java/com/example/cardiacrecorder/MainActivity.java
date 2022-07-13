@@ -20,8 +20,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cardiacrecorder.databinding.ActivityMainBinding;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -52,7 +50,17 @@ ArrayList<Record> recordsArrayList;
 
         record = new Record("11-12-21","11:21",126,121,34);
         recordsArrayList.add(record);
+        recordsArrayList
+                .add(new Record("01-01-01","11:21",126,121,34));
         recordAdapter.notifyDataSetChanged();
+
+
+
+
+
+
+
+
         //String date, String time, int systolic, int diastolic, int heart_rate, String comment
 
 

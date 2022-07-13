@@ -1,76 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/llContainerCardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="10dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:background="@drawable/ic_cardview_background"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_cardview_background">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:id="@+id/dateLL"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date: "
+                    android:textSize="30sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvDate"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Date"
-                    android:textSize="48sp"
-                    android:textStyle="bold"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/tvSystolic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Systolic: 23"
-                    android:textSize="48sp"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/tvDiastolic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Diastolic"
-                    android:textSize="48sp"
-                    app:autoSizeTextType="uniform" />
-
-                <TextView
-                    android:id="@+id/tvHeartRate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Heart Rate"
-                    android:textSize="48sp"
-                    app:autoSizeTextType="uniform" />
+                    android:text="11-11-11"
+                    android:textColor="#000000"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
-            <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_edit_48px"
-            android:layout_alignParentRight="true"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_delete_48px"
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/dateLL"
+                android:id="@+id/sysLL"
+                android:layout_marginLeft="5dp"
+                android:textColor="#000000"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="Systolic: "
+                    android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/tvSystolic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="120"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/sysLL"
+                android:id="@+id/diasLL"
+                android:layout_marginLeft="5dp"
+                android:textColor="#000000"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="Diastolic: "
+                    android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/tvDiastolic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="80"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/heartLL"
+                android:layout_below="@id/diasLL"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="Heart Rate: "
+                    android:textSize="30sp"/>
+                <TextView
+                    android:id="@+id/tvHeartRate"
+                    android:layout_width="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:text="55"
+                    android:textSize="30sp"/>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/ic_edit_48px" />
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"/>
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ic_delete_48px" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
