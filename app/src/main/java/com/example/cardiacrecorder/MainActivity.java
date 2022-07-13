@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -41,12 +42,14 @@ SharedPreferences sharedPreferences;
 SharedPreferences.Editor editor;
 Gson gson;
 ArrayList<Record> recordsArrayList;
+ImageView addButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        addButton = findViewById(R.id.addButton);
 
        // recordsArrayList = new ArrayList<>();
         retrieveData();
@@ -56,6 +59,33 @@ ArrayList<Record> recordsArrayList;
 
         recyclerView.setAdapter(recordAdapter);
         recyclerView.setLayoutManager(linearLayoutManager);
+        recordAdapter.setCustomClickListener(new RecordAdapter.CustomClickListener() {
+            @Override
+            public void customOnClick(int position, View v) {
+                startActivity(new Intent(MainActivity.this, ViewActivity.class));
+                finish();
+            }
+
+            @Override
+            public void customOnLongClick(int position, View v) {
+
+            }
+        });
+
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AddActivity.class));
+                finish();
+            }
+        });
+
+
+
+
+
+
 
 /*        record = new Record("11-12-21","11:21",126,121,34);
         recordsArrayList.add(record);
@@ -67,7 +97,7 @@ ArrayList<Record> recordsArrayList;
 
 
 
-        recordAdapter.notifyDataSetChanged();
+        //recordAdapter.notifyDataSetChanged();
 
 
 
