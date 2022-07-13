@@ -1,14 +1,27 @@
 package com.example.cardiacrecorder;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 public class AddActivity extends AppCompatActivity {
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    Gson gson;
+    ArrayList<Record> recordsArrayList;
     Record record;
     EditText date,time,systolic,diastolic,heartRate,comment;
     boolean isAllFieldsChecked = false;
@@ -24,6 +37,7 @@ public class AddActivity extends AppCompatActivity {
         heartRate = findViewById(R.id.heartRateValue);
         comment = findViewById(R.id.commentValue);
         Button saveButton = findViewById( R.id.addButton);
+        retrieveData();
 
         saveButton.setOnClickListener(v -> {
 
@@ -33,16 +47,26 @@ public class AddActivity extends AppCompatActivity {
 
             // the boolean variable turns to be true then
             // only the user must be proceed to the activity2
+
             if (isAllFieldsChecked) {
-                record.setDate(date.getText().toString());
-                record.setTime(time.getText().toString());
-                record.setSystolic(Integer.parseInt(systolic.getText().toString()));
-                record.setDiastolic(Integer.parseInt(diastolic.getText().toString()));
-                record.setHeart_rate(Integer.parseInt(heartRate.getText().toString()));
-                record.setComment(comment.getText().toString());
-                Intent i = new Intent(AddActivity.this, MainActivity.class);
-                i.putExtra("New Record", record);
+                String dateStr = date.getText().toString();
+                String timeStr = time.getText().toString();
+                int sysInt = Integer.parseInt(systolic.getText().toString());
+                int diasInt = Integer.parseInt(diastolic.getText().toString());
+                int heartInt = Integer.parseInt(heartRate.getText().toString());
+                String commentStr = comment.getText().toString();
+                record = new Record(dateStr,timeStr,sysInt,diasInt,heartInt,commentStr);
+
+                recordsArrayList.add(record);
+                Toast.makeText(this,"Saving Records...",Toast.LENGTH_SHORT).show();
+                PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
+                saveData();
+
+
+               Intent i = new Intent(AddActivity.this, MainActivity.class);
+               // i.putExtra("New Record", record);
                 startActivity(i);
+                finish();
             }
         });
     }
@@ -100,5 +124,26 @@ public class AddActivity extends AppCompatActivity {
 
         // after all validation return true if all required fields are inserted.
         return true;
+    }
+    private void retrieveData()
+    {
+        sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
+        gson = new Gson();
+        String jsonString = sharedPreferences.getString("record",null);
+        Type type = new TypeToken<ArrayList<Record>>(){}.getType();
+        recordsArrayList = gson.fromJson(jsonString,type);
+        if(recordsArrayList ==null)
+        {
+            recordsArrayList = new ArrayList<>();
+        }
+    }
+    private void saveData()
+    {
+        sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        gson = new Gson();
+        String jsonString = gson.toJson(recordsArrayList);
+        editor.putString("record",jsonString);
+        editor.apply();
     }
 }
