@@ -2,11 +2,13 @@ package com.example.cardiacrecorder.adapter;
 
 import android.app.ApplicationErrorReport;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -53,91 +55,61 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
     public void onBindViewHolder(@NonNull RecordAdapter.RecordViewHolder holder, int position) {
         if (!recordList.isEmpty()) record = recordList.get(position);
 
-        holder.dateTextView.setText(record.getDate());
-        holder.systolicTextView.setText(record.getSystolic());
-        holder.diastolicTextView.setText(record.getDiastolic());
-        holder.heartTextView.setText(record.getHeartRate());
+        holder.dateTextView.setText(""+record.getDate());
+        holder.systolicTextView.setText(""+record.getSystolic());
+        holder.diastolicTextView.setText(""+record.getDiastolic());
+        holder.heartTextView.setText(""+record.getHeartRate());
         if (record.getDiastolic()<80) {
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, gConditionColor);
-            holder.diastolicTextView.setBackground(buttonDrawable);
+
+            holder.diastolicTextView.setTextColor(Color.parseColor("#FF018786"));
+
+
         }
         else if(record.getDiastolic()<=89){
-           Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, nConditionColor);
-            holder.diastolicTextView.setBackground(buttonDrawable);
-           // holder.containerCardView.setCardBackgroundColor(unBookedColor);
+
+            holder.diastolicTextView.setTextColor(Color.parseColor("#3C96DD"));
+
 
         }
         else
         {
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, cConditionColor);
-            holder.diastolicTextView.setBackground(buttonDrawable);
-            // holder.containerCardView.setCardBackgroundColor(unBookedColor);
+
+            holder.diastolicTextView.setTextColor(Color.parseColor("#C3473E"));
 
         }
 
 
         if (record.getSystolic()<120) {
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, gConditionColor);
-            holder.systolicTextView.setBackground(buttonDrawable);
+
+            holder.systolicTextView.setTextColor(Color.parseColor("#FF018786"));
         }
         else if(record.getSystolic()<=139){
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, nConditionColor);
-            holder.systolicTextView.setBackground(buttonDrawable);
-            // holder.containerCardView.setCardBackgroundColor(unBookedColor);
+
+            holder.systolicTextView.setTextColor(Color.parseColor("#3C96DD"));
+
 
         }
         else
         {
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, cConditionColor);
-            holder.systolicTextView.setBackground(buttonDrawable);
-            // holder.containerCardView.setCardBackgroundColor(unBookedColor);
+
+            holder.systolicTextView.setTextColor(Color.parseColor("#C3473E"));
 
         }
 
 
         if (record.getHeartRate()>60 && record.getHeartRate()<100) {
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, gConditionColor);
-            holder.heartTextView.setBackground(buttonDrawable);
-            holder.heartTextView.setBackgroundColor( gConditionColor);
+
+            holder.heartTextView.setTextColor(Color.parseColor("#FF018786"));
         }
         else if(record.getHeartRate()>=40){
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, nConditionColor);
-            holder.heartTextView.setBackground(buttonDrawable);
-            holder.heartTextView.setBackgroundColor( nConditionColor);
+
+            holder.heartTextView.setTextColor(Color.parseColor("#3C96DD"));
 
         }
         else
         {
-            Drawable buttonDrawable = holder.containerCardView.getBackground();
-            buttonDrawable = DrawableCompat.wrap(buttonDrawable);
-            //the color is a direct color int and not a color resource
-            DrawableCompat.setTint(buttonDrawable, cConditionColor);
-            holder.heartTextView.setBackground(buttonDrawable);
-            holder.heartTextView.setBackgroundColor( cConditionColor);
+
+            holder.heartTextView.setTextColor(Color.parseColor("#C3473E"));
 
         }
 
@@ -169,8 +141,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             super(itemView);
             systolicTextView = itemView.findViewById(R.id.tvSystolic);
             diastolicTextView = itemView.findViewById(R.id.tvDiastolic);
-            dateTextView = itemView.findViewById(R.id.tvHeartRate);
-            heartTextView = itemView.findViewById(R.id.date);
+            dateTextView = itemView.findViewById(R.id.tvDate);
+            heartTextView = itemView.findViewById(R.id.tvHeartRate);
             containerCardView = itemView.findViewById(R.id.llContainerCardView);
 
             itemView.setOnClickListener(this);

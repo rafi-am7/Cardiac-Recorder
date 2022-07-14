@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="colorPrimary">#C3473E</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="normal">#FF000000</color>
+    <color name="normal">#3C96DD</color>
     <color name="good">#FF018786</color>
     <color name="critical">#C3473E</color>
 </resources>
