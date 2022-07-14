@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class AddActivity extends AppCompatActivity {
     ArrayList<Record> recordsArrayList;
     Record record;
     EditText date,time,systolic,diastolic,heartRate,comment;
+    Button cancelButton,saveButton;
     boolean isAllFieldsChecked = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,18 @@ public class AddActivity extends AppCompatActivity {
         diastolic = findViewById(R.id.diastolicValue);
         heartRate = findViewById(R.id.heartRateValue);
         comment = findViewById(R.id.commentValue);
-        Button saveButton = findViewById( R.id.addButton);
+        saveButton = findViewById( R.id.addButton);
+        cancelButton = findViewById( R.id.cancelButton);
         retrieveData();
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AddActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         saveButton.setOnClickListener(v -> {
 

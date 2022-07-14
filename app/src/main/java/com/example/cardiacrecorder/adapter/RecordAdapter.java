@@ -1,18 +1,14 @@
 package com.example.cardiacrecorder.adapter;
 
-import android.app.ApplicationErrorReport;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cardiacrecorder.R;
@@ -100,11 +96,6 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         if (record.getHeartRate()>60 && record.getHeartRate()<100) {
 
             holder.heartTextView.setTextColor(Color.parseColor("#FF018786"));
-        }
-        else if(record.getHeartRate()>=40){
-
-            holder.heartTextView.setTextColor(Color.parseColor("#3C96DD"));
-
         }
         else
         {
