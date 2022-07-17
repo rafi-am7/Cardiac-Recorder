@@ -36,8 +36,8 @@
         android:id="@+id/dateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
         android:text="dd/mm/yy"
         android:textColor="#808080"
         android:textSize="16sp"
@@ -59,8 +59,8 @@
         android:id="@+id/timeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
         android:text="hh:mm"
         android:textColor="#808080"
         android:textSize="16sp"
@@ -82,8 +82,8 @@
         android:id="@+id/systolicValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
         android:text="number"
         android:textColor="#808080"
         android:textSize="16sp"
@@ -105,8 +105,8 @@
         android:id="@+id/diastolicValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
         android:text="number"
         android:textColor="#808080"
         android:textSize="16sp"
@@ -128,8 +128,6 @@
         android:id="@+id/heartRateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
         android:text="number"
         android:textColor="#808080"
         android:textSize="16sp"
@@ -151,14 +149,15 @@
         android:id="@+id/commentValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="5dp"
+        android:maxLines="5"
         android:text="Comment"
         android:textColor="#808080"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/Header"
         app:layout_constraintTop_toBottomOf="@+id/Comment" />
+
     <FrameLayout
         android:id="@+id/backFrameLayout"
         android:layout_width="wrap_content"
@@ -179,4 +178,5 @@
             android:text="Back"
             android:textSize="24sp" />
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
