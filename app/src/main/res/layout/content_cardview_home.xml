@@ -124,6 +124,7 @@
 
 
             <ImageView
+                android:id="@+id/editIm"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_alignParentRight="true"
@@ -131,6 +132,7 @@
                 android:background="@drawable/ic_edit_48px" />
 
             <ImageView
+                android:id="@+id/deleteIm"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_alignParentRight="true"

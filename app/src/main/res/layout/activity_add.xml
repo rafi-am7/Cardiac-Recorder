@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/screen_background"
-    tools:context=".ViewActivity">
+    tools:context=".AddActivity">
 
     <TextView
         android:id="@+id/header"
@@ -47,7 +47,11 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/header"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="true"
+        android:focusableInTouchMode="false"/>
 
     <TextView
         android:id="@+id/time"
@@ -90,12 +94,11 @@
         app:layout_constraintTop_toBottomOf="@+id/time" />
 
     <EditText
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:id="@+id/systolicValue"
         android:layout_width="fill_parent"
-        android:layout_height="35dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_bg_thick"
         android:backgroundTint="@color/white"
         android:hint="mmHg"
@@ -148,12 +151,11 @@
         app:layout_constraintTop_toBottomOf="@+id/diastolic" />
 
     <EditText
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:id="@+id/heartRateValue"
         android:layout_width="fill_parent"
-        android:layout_height="35dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_bg_thick"
         android:backgroundTint="@color/white"
         android:hint="bit per minute"
@@ -185,8 +187,7 @@
         android:layout_marginEnd="15dp"
         android:background="@drawable/button_bg_thick"
         android:backgroundTint="@color/white"
-        android:gravity="top|start"
-        android:hint="Comment"
+        android:hint="Put your comment here."
         android:inputType="textMultiLine"
         android:maxLines="4"
         android:minLines="4"

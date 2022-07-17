@@ -5,199 +5,203 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/screen_background"
-    tools:context=".ViewActivity">
-
-    <TextView
-        android:id="@+id/Header2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="50dp"
-        android:text="Update Records :"
-        android:textColor="@color/black"
-        android:textSize="21sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Date2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/date"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Header2" />
-
-    <EditText
-        android:id="@+id/DateValue2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/rounded_text_field"
-        android:inputType="text"
-        android:padding="7dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Date2" />
-
-    <TextView
-        android:id="@+id/Time2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/time"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Date2" />
-
-    <EditText
-        android:id="@+id/TimeValue2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/rounded_text_field"
-        android:inputType="text"
-        android:padding="7dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Time2" />
-
-    <TextView
-        android:id="@+id/Systolic2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/systolic"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Time2" />
-
-    <EditText
-        android:id="@+id/SystolicValue2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/rounded_text_field"
-        android:inputType="number"
-        android:padding="7dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Systolic2" />
-
-    <TextView
-        android:id="@+id/Diastolic2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/diastolic"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Systolic2" />
-
-    <EditText
-        android:id="@+id/DiastolicValue2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/rounded_text_field"
-        android:inputType="number"
-        android:padding="7dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Diastolic2" />
-
-    <TextView
-        android:id="@+id/HeartRate2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/heart_rate"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Diastolic2" />
-
-    <EditText
-        android:id="@+id/HeartRateValue2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/rounded_text_field"
-        android:inputType="number"
-        android:padding="7dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/HeartRate2" />
-
-    <TextView
-        android:id="@+id/Comment2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/comment"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/HeartRate2" />
-
-    <EditText
-        android:id="@+id/CommentValue2"
-        android:layout_width="fill_parent"
-        android:layout_height="120dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/rounded_text_field"
-        android:inputType="textMultiLine"
-        android:minLines="3"
-        android:maxLines="6"
-        android:gravity="top|start"
-        android:padding="7dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/Header2"
-        app:layout_constraintTop_toBottomOf="@+id/Comment2" />
+    tools:context=".UpdateActivity">
 
 
-    <FrameLayout
-        android:id="@+id/updateFrameLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_text_field"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:backgroundTint="#D30FBDF3"
-        android:layout_marginBottom="27dp"
-        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/header"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="50dp"
+            android:text="Insert Records :"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/updateButton"
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        <EditText
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/dateValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Update"
-            android:textSize="20sp" />
-    </FrameLayout>
+            android:background="@drawable/button_bg_thick"
+            android:backgroundTint="@color/white"
+            android:hint="dd/mm/yy"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/time"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <EditText
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/timeValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_thick"
+            android:backgroundTint="@color/white"
+            android:hint="hh : mm"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
+
+        <TextView
+            android:id="@+id/systolic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/systolic"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
+
+        <EditText
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/systolicValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_thick"
+            android:backgroundTint="@color/white"
+            android:hint="mmHg"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/systolic" />
+
+        <TextView
+            android:id="@+id/diastolic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/diastolic"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/systolic" />
+
+        <EditText
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/diastolicValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_thick"
+            android:backgroundTint="@color/white"
+            android:hint="mmHg"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/diastolic" />
+
+        <TextView
+            android:id="@+id/heartRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/heart_rate"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/diastolic" />
+
+        <EditText
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/heartRateValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_thick"
+            android:backgroundTint="@color/white"
+            android:hint="bit per minute"
+            android:inputType="number"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/heartRate" />
+
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/comment"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/heartRate" />
+
+        <EditText
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/commentValue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_thick"
+            android:backgroundTint="@color/white"
+            android:hint="Put your comment here."
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/comment" />
+
+        <FrameLayout
+            android:id="@+id/updateFrameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_text_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="#03A9F4"
+            android:layout_marginBottom="27dp"
+            tools:ignore="MissingConstraints">
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Update"
+                    android:textSize="24sp" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
