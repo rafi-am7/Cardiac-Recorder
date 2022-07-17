@@ -196,13 +196,12 @@
             android:layout_marginBottom="27dp"
             tools:ignore="MissingConstraints">
 
-            <Button
-                android:id="@+id/addButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:background="?android:attr/selectableItemBackground"
-                android:text="Update"
-                />
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Update"
+                    android:textSize="24sp" />
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

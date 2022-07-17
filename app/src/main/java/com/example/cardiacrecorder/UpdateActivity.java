@@ -86,7 +86,6 @@ public class UpdateActivity extends AppCompatActivity {
 
 
                 Intent i = new Intent(UpdateActivity.this, MainActivity.class);
-                // i.putExtra("New Record", record);
                 startActivity(i);
                 finish();
 

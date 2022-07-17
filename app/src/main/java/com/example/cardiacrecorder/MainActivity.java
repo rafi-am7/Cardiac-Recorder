@@ -63,8 +63,9 @@ ImageView addButton;
         recordAdapter.setCustomClickListener(new RecordAdapter.CustomClickListener() {
             @Override
             public void customOnClick(int position, View v) {
-                startActivity(new Intent(MainActivity.this, ViewActivity.class));
-                finish();
+                Intent intent = new Intent(MainActivity.this, ViewActivity.class);
+                intent.putExtra("index",position);
+                startActivity(intent);
             }
 
             @Override

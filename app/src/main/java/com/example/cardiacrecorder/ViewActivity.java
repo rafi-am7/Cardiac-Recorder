@@ -3,32 +3,81 @@ package com.example.cardiacrecorder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 public class ViewActivity extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    Gson gson;
+    ArrayList<Record> recordsArrayList;
+    Record record;
 
-
+    TextView date,time,systolic,diastolic,heartRate,comment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
 
         Intent intent = getIntent();
-        Record record = intent.getParcelableExtra("record");
+        int index = intent.getIntExtra("index",0);
+        //Toast.makeText(UpdateActivity.this,""+index,Toast.LENGTH_SHORT).show();
+
+        date = findViewById(R.id.dateValue);
+        time = findViewById(R.id.timeValue);
+        systolic = findViewById(R.id.systolicValue);
+        diastolic = findViewById(R.id.diastolicValue);
+        heartRate = findViewById(R.id.heartRateValue);
+        comment = findViewById(R.id.commentValue);
+        Button backButton = findViewById( R.id.backButton);
+        retrieveData();
+
+        record = recordsArrayList.get(index);
+
+        date.setText(""+record.getDate());
+        time.setText(""+record.getTime());
+        systolic.setText(""+record.getSystolic());
+        diastolic.setText(""+record.getDiastolic());
+        heartRate.setText(""+record.getHeartRate());
+        comment.setText(""+record.getComment());
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
-        TextView date = findViewById(R.id.DateValue);
-        TextView time = findViewById(R.id.TimeValue);
-        TextView systolic = findViewById(R.id.SystolicValue);
-        TextView diastolic = findViewById(R.id.DiastolicValue);
-        TextView heartRate = findViewById(R.id.HeartRateValue);
-        TextView comment = findViewById(R.id.CommentValue);
-        date.setText(record.getDate());
-        time.setText(record.getTime());
-        systolic.setText(record.getSystolic());
-        diastolic.setText(record.getDiastolic());
-        heartRate.setText(record.getHeartRate());
-        comment.setText(record.getComment());
+    }
+    private void retrieveData()
+    {
+        sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
+        gson = new Gson();
+        String jsonString = sharedPreferences.getString("record",null);
+        Type type = new TypeToken<ArrayList<Record>>(){}.getType();
+        recordsArrayList = gson.fromJson(jsonString,type);
+        if(recordsArrayList ==null)
+        {
+            recordsArrayList = new ArrayList<>();
+        }
+    }
+    private void saveData()
+    {
+        sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        gson = new Gson();
+        String jsonString = gson.toJson(recordsArrayList);
+        editor.putString("record",jsonString);
+        editor.apply();
     }
 }
