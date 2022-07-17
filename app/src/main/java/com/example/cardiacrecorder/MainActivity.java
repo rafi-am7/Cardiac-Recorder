@@ -1,5 +1,6 @@
 package com.example.cardiacrecorder;
 
+import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,8 +35,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-RecyclerView recyclerView;
-RecordAdapter recordAdapter;
+    static RecyclerView recyclerView;
+static RecordAdapter recordAdapter;
 LinearLayoutManager linearLayoutManager;
 Record record;
 SharedPreferences sharedPreferences;

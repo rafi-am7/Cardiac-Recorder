@@ -17,6 +17,7 @@ public class ViewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Record record = intent.getParcelableExtra("record");
 
+
         TextView date = findViewById(R.id.DateValue);
         TextView time = findViewById(R.id.TimeValue);
         TextView systolic = findViewById(R.id.SystolicValue);
