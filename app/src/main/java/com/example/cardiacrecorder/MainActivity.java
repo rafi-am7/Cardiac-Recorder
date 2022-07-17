@@ -1,5 +1,8 @@
 package com.example.cardiacrecorder;
 
+import android.bluetooth.BluetoothManager;
+import android.content.Context;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,8 +22,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-RecyclerView recyclerView;
-RecordAdapter recordAdapter;
+    static RecyclerView recyclerView;
+static RecordAdapter recordAdapter;
 LinearLayoutManager linearLayoutManager;
 Record record;
 SharedPreferences sharedPreferences;
@@ -47,8 +50,9 @@ ImageView addButton;
         recordAdapter.setCustomClickListener(new RecordAdapter.CustomClickListener() {
             @Override
             public void customOnClick(int position, View v) {
-                startActivity(new Intent(MainActivity.this, ViewActivity.class));
-                finish();
+                Intent intent = new Intent(MainActivity.this, ViewActivity.class);
+                intent.putExtra("index",position);
+                startActivity(intent);
             }
 
             @Override

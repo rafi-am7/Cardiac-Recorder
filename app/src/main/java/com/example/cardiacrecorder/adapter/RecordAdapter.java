@@ -1,18 +1,24 @@
 package com.example.cardiacrecorder.adapter;
 
+import android.annotation.SuppressLint;
+import android.app.ApplicationErrorReport;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cardiacrecorder.AddActivity;
 import com.example.cardiacrecorder.R;
 import com.example.cardiacrecorder.Record;
+import com.example.cardiacrecorder.UpdateActivity;
 
 import java.util.ArrayList;
 
@@ -48,61 +54,45 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecordAdapter.RecordViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecordAdapter.RecordViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (!recordList.isEmpty()) record = recordList.get(position);
 
         holder.dateTextView.setText(""+record.getDate());
         holder.systolicTextView.setText(""+record.getSystolic());
         holder.diastolicTextView.setText(""+record.getDiastolic());
         holder.heartTextView.setText(""+record.getHeartRate());
-        if (record.getDiastolic()<80) {
 
-            holder.diastolicTextView.setTextColor(Color.parseColor("#FF018786"));
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, UpdateActivity.class);
+                intent.putExtra("index",position);
+                mContext.startActivity(intent);
+            }
+        });
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
-        }
-        else if(record.getDiastolic()<=89){
-
-            holder.diastolicTextView.setTextColor(Color.parseColor("#3C96DD"));
-
-
-        }
-        else
-        {
-
-            holder.diastolicTextView.setTextColor(Color.parseColor("#C3473E"));
-
-        }
-
-
-        if (record.getSystolic()<120) {
-
-            holder.systolicTextView.setTextColor(Color.parseColor("#FF018786"));
-        }
-        else if(record.getSystolic()<=139){
-
-            holder.systolicTextView.setTextColor(Color.parseColor("#3C96DD"));
+        if (record.getDiastolic()<80) holder.diastolicTextView.setTextColor(Color.parseColor("#FF018786"));
+        else if(record.getDiastolic()<=89) holder.diastolicTextView.setTextColor(Color.parseColor("#3C96DD"));
+        else holder.diastolicTextView.setTextColor(Color.parseColor("#C3473E"));
 
 
-        }
-        else
-        {
-
-            holder.systolicTextView.setTextColor(Color.parseColor("#C3473E"));
-
-        }
+        if (record.getSystolic()<120) holder.systolicTextView.setTextColor(Color.parseColor("#FF018786"));
+        else if(record.getSystolic()<=139) holder.systolicTextView.setTextColor(Color.parseColor("#3C96DD"));
+        else holder.systolicTextView.setTextColor(Color.parseColor("#C3473E"));
 
 
-        if (record.getHeartRate()>60 && record.getHeartRate()<100) {
+        if (record.getHeartRate()>60 && record.getHeartRate()<100) holder.heartTextView.setTextColor(Color.parseColor("#FF018786"));
+        else if(record.getHeartRate()>=40) holder.heartTextView.setTextColor(Color.parseColor("#3C96DD"));
+        else holder.heartTextView.setTextColor(Color.parseColor("#C3473E"));
 
-            holder.heartTextView.setTextColor(Color.parseColor("#FF018786"));
-        }
-        else
-        {
 
-            holder.heartTextView.setTextColor(Color.parseColor("#C3473E"));
 
-        }
 
 
 
@@ -127,6 +117,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         TextView diastolicTextView;
         TextView dateTextView;
         CardView containerCardView;
+        ImageView editButton, deleteButton;
 
         public RecordViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -135,6 +126,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             dateTextView = itemView.findViewById(R.id.tvDate);
             heartTextView = itemView.findViewById(R.id.tvHeartRate);
             containerCardView = itemView.findViewById(R.id.llContainerCardView);
+            editButton = itemView.findViewById(R.id.editIm);
+            deleteButton = itemView.findViewById(R.id.deleteIm);
 
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);

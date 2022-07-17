@@ -11,4 +11,5 @@
     <color name="normal">#3C96DD</color>
     <color name="good">#FF018786</color>
     <color name="critical">#C3473E</color>
+    <color name="hint_color">#8D8686</color>
 </resources>
