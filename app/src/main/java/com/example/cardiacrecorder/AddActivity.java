@@ -31,6 +31,7 @@ public class AddActivity extends AppCompatActivity {
     Record record;
     DatePickerDialog.OnDateSetListener onDateSetListener;
     EditText date,time,systolic,diastolic,heartRate,comment;
+    Button saveButton;
 
     String dateStr;
 
@@ -46,8 +47,7 @@ public class AddActivity extends AppCompatActivity {
         diastolic = findViewById(R.id.diastolicValue);
         heartRate = findViewById(R.id.heartRateValue);
         comment = findViewById(R.id.commentValue);
-        saveButton = findViewById( R.id.addButton);
-        cancelButton = findViewById( R.id.cancelButton);
+        saveButton = findViewById(R.id.addButton);
         retrieveData();
 
 
