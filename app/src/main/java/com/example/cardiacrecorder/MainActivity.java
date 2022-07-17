@@ -2,36 +2,23 @@ package com.example.cardiacrecorder;
 
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import com.example.cardiacrecorder.adapter.RecordAdapter;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Handler;
-import android.view.View;
-
-import androidx.core.content.ContextCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageView;
+import com.example.cardiacrecorder.adapter.RecordAdapter;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -114,9 +101,7 @@ ImageView addButton;
 
 
 /*
-                                    dailyBookingDT = i.getValue(DailyBookingDT.class);
-                                    roomListArray.add(dailyBookingDT);
-                                    mRoomRvAdapter.notifyDataSetChanged();
+
         ArrayList<String> list = new ArrayList<String>();
         list.add("foo");
         list.add("baar");

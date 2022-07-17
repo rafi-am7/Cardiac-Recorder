@@ -9,15 +9,14 @@
 
     <TextView
         android:id="@+id/header"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Insert Records :"
         android:textColor="@color/black"
         android:textSize="21sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,18 +32,20 @@
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <EditText
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:paddingLeft="5dp"
         android:id="@+id/dateValue"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/button_bg_thick"
         android:backgroundTint="@color/white"
         android:hint="dd/mm/yy"
         android:inputType="text"
+        android:paddingLeft="5dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/date"
         android:clickable="true"
@@ -64,18 +65,20 @@
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <EditText
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:paddingLeft="5dp"
         android:id="@+id/timeValue"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/button_bg_thick"
         android:backgroundTint="@color/white"
         android:hint="hh : mm"
         android:inputType="text"
+        android:paddingLeft="5dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/time" />
 
@@ -102,7 +105,8 @@
         android:inputType="number"
         android:paddingLeft="5dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/systolic" />
 
@@ -118,18 +122,20 @@
         app:layout_constraintTop_toBottomOf="@+id/systolic" />
 
     <EditText
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:paddingLeft="5dp"
         android:id="@+id/diastolicValue"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/button_bg_thick"
         android:backgroundTint="@color/white"
         android:hint="mmHg"
         android:inputType="number"
+        android:paddingLeft="5dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/diastolic" />
 
@@ -156,7 +162,8 @@
         android:inputType="number"
         android:paddingLeft="5dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/heartRate" />
 
@@ -172,40 +179,54 @@
         app:layout_constraintTop_toBottomOf="@+id/heartRate" />
 
     <EditText
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:paddingLeft="5dp"
         android:id="@+id/commentValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/button_bg_thick"
         android:backgroundTint="@color/white"
         android:hint="Put your comment here."
         android:inputType="textMultiLine"
+        android:maxLines="4"
+        android:minLines="4"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toBottomOf="@+id/comment" />
 
-    <FrameLayout
-        android:id="@+id/updateFrameLayout"
+
+    <Button
+        android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/rounded_text_field"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="#F63E3E"
+        android:text="Cancel"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:backgroundTint="#009688"
-        android:layout_marginBottom="27dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:background="?android:attr/selectableItemBackground"
-            android:text="Save"
-            />
-    </FrameLayout>
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rounded_text_field"
+        android:backgroundTint="@color/normal"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
