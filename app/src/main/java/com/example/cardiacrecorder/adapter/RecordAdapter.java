@@ -73,8 +73,16 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mCustomClickListener != null) {
+                    //int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mCustomClickListener.onDeleteClick(position);
+                    }
+                }
+
 
             }
+
         });
 
         if (record.getDiastolic()<80) holder.diastolicTextView.setTextColor(Color.parseColor("#FF018786"));
@@ -92,11 +100,6 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         else holder.heartTextView.setTextColor(Color.parseColor("#C3473E"));
 
 
-
-
-
-
-
     }
 
     @Override
@@ -108,6 +111,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         void customOnClick(int position, View v);
 
         void customOnLongClick(int position, View v);
+
+        void onDeleteClick(int position);
         //declaring method which will provide to main activity //position and view will also be provided
     }
 
@@ -138,6 +143,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         public void onClick(View view) {
             mCustomClickListener.customOnClick(getAdapterPosition(), view);  //position and view setting to provide to mainactivity
         }
+
 
         public boolean onLongClick(View view) {
 
