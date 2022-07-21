@@ -1,8 +1,5 @@
 package com.example.cardiacrecorder;
 
-import android.bluetooth.BluetoothManager;
-import android.content.Context;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -66,7 +63,7 @@ ImageView addButton;
                 recordsArrayList.remove(position);
                 recordAdapter.notifyItemRemoved(position);
                 saveData();
-                Toast.makeText(MainActivity.this,"Delete successful!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"Deleted successful!",Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onEditClick(int position) {
