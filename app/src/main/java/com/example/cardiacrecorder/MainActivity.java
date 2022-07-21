@@ -59,6 +59,12 @@ ImageView addButton;
             public void customOnLongClick(int position, View v) {
 
             }
+
+            @Override
+            public void onDeleteClick(int position) {
+                recordsArrayList.remove(position);
+                recordAdapter.notifyItemRemoved(position);
+            }
         });
 
 
@@ -68,6 +74,7 @@ ImageView addButton;
                 startActivity(new Intent(MainActivity.this,AddActivity.class));
                 finish();
             }
+
         });
 
 
