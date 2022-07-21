@@ -92,9 +92,10 @@ public class UpdateActivity extends AppCompatActivity {
 
                 //recordsArrayList.add(record);
                 recordsArrayList.set(index,record);
-                Toast.makeText(this,"Saving Records...",Toast.LENGTH_SHORT).show();
                 PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
                 saveData();
+                Toast.makeText(UpdateActivity.this,"Updated successfully!",Toast.LENGTH_SHORT).show();
+
                 //MainActivity.recyclerView.getAdapter().notifyDataSetChanged();
                // MainActivity.recyclerView.setAdapter(MainActivity.recordAdapter);
 

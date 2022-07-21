@@ -65,9 +65,13 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, UpdateActivity.class);
-                intent.putExtra("index",position);
-                mContext.startActivity(intent);
+                if (mCustomClickListener != null) {
+                    //int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mCustomClickListener.onEditClick(position);
+                    }
+                }
+
             }
         });
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +117,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         void customOnLongClick(int position, View v);
 
         void onDeleteClick(int position);
+
+        void onEditClick(int position);
         //declaring method which will provide to main activity //position and view will also be provided
     }
 

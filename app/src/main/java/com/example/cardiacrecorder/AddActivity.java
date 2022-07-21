@@ -77,7 +77,7 @@ public class AddActivity extends AppCompatActivity {
                 record = new Record(dateStr,timeStr,sysInt,diasInt,heartInt,commentStr);
 
                 recordsArrayList.add(record);
-                Toast.makeText(this,"Saving Records...",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddActivity.this,"Record added successfully!",Toast.LENGTH_SHORT).show();
                 PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
                 saveData();
 

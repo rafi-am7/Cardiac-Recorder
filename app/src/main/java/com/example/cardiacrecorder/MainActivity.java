@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -64,7 +65,18 @@ ImageView addButton;
             public void onDeleteClick(int position) {
                 recordsArrayList.remove(position);
                 recordAdapter.notifyItemRemoved(position);
+                saveData();
+                Toast.makeText(MainActivity.this,"Delete successful!",Toast.LENGTH_SHORT).show();
             }
+            @Override
+            public void onEditClick(int position) {
+
+                Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
+                intent.putExtra("index",position);
+                startActivity(intent);
+                finish();
+            }
+
         });
 
 
