@@ -19,15 +19,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    static RecyclerView recyclerView;
-static RecordAdapter recordAdapter;
+RecyclerView recyclerView;
+public static RecordAdapter recordAdapter;
 LinearLayoutManager linearLayoutManager;
 Record record;
 SharedPreferences sharedPreferences;
 SharedPreferences.Editor editor;
 Gson gson;
-ArrayList<Record> recordsArrayList;
+public static ArrayList<Record> recordsArrayList;
 ImageView addButton;
 
 
@@ -71,7 +70,6 @@ ImageView addButton;
                 Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
                 intent.putExtra("index",position);
                 startActivity(intent);
-                finish();
             }
 
         });
@@ -81,7 +79,6 @@ ImageView addButton;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,AddActivity.class));
-                finish();
             }
 
         });
@@ -135,6 +132,10 @@ ImageView addButton;
         }*/
         // recordAdapter = new RecordAdapter(this, ContextCompat.getColor(this,R.color.good),ContextCompat.getColor(this,R.color.normal),ContextCompat.getColor(this,R.color.critical),recordList);
     }
+
+    /**
+     * method for saving data to shared preference
+     */
     private void saveData()
     {
         sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
@@ -144,6 +145,10 @@ ImageView addButton;
         editor.putString("record",jsonString);
         editor.apply();
     }
+
+    /**
+     * method for retrieving data from shared preference
+     */
     private void retrieveData()
     {
         sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);

@@ -2,7 +2,6 @@ package com.example.cardiacrecorder;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -56,11 +55,6 @@ public class AddActivity extends AppCompatActivity {
         datePicker();
         timePicker();
 
-
-
-
-
-
         saveButton.setOnClickListener(v -> {
 
             // store the returned value of the dedicated function which checks
@@ -79,19 +73,23 @@ public class AddActivity extends AppCompatActivity {
                 record = new Record(dateStr,timeStr,sysInt,diasInt,heartInt,commentStr);
 
                 recordsArrayList.add(record);
+                MainActivity.recordsArrayList.add(record);
+                MainActivity.recordAdapter.notifyDataSetChanged();
                 Toast.makeText(AddActivity.this,"Record added successfully!",Toast.LENGTH_SHORT).show();
                 PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
                 saveData();
 
 
-               Intent i = new Intent(AddActivity.this, MainActivity.class);
-               // i.putExtra("New Record", record);
-                startActivity(i);
                 finish();
             }
         });
     }
 
+    /**
+     * This method if for validation of user input
+     * @return
+     *      returns true when user inserts valid data. otherwise returns false
+     */
     private boolean CheckAllFields() {
         if (date.length() == 0) {
             date.setError("This field is required");
@@ -146,6 +144,10 @@ public class AddActivity extends AppCompatActivity {
         // after all validation return true if all required fields are inserted.
         return true;
     }
+
+    /**
+     * Method for getting a date from user through date picker
+     */
     private void datePicker()
     {
         date.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +171,10 @@ public class AddActivity extends AppCompatActivity {
             }
         };
     }
+
+    /**
+     * Method for getting a time from user through time picker
+     */
     private void timePicker() {
         time.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,7 +186,7 @@ public class AddActivity extends AppCompatActivity {
                 TimePickerDialog dialog =  new TimePickerDialog(AddActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        timeStr = hour + ":" +minute;
+                        timeStr = hourOfDay + ":" +minute;
                         time.setText(timeStr);
 
                     }
@@ -193,6 +199,9 @@ public class AddActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * method for retrieving data from shared preference
+     */
     private void retrieveData()
     {
         sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
@@ -205,6 +214,10 @@ public class AddActivity extends AppCompatActivity {
             recordsArrayList = new ArrayList<>();
         }
     }
+
+    /**
+     * method for saving data to shared preference
+     */
     private void saveData()
     {
         sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
