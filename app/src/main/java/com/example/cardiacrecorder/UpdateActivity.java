@@ -2,12 +2,19 @@ package com.example.cardiacrecorder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -15,12 +22,16 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class UpdateActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Gson gson;
     ArrayList<Record> recordsArrayList;
+    DatePickerDialog.OnDateSetListener onDateSetListener;
+    TimePickerDialog.OnTimeSetListener onTimeSetListener;
+    String dateStr,timeStr;
     Record record;
 
     EditText date,time,systolic,diastolic,heartRate,comment;
@@ -42,6 +53,11 @@ public class UpdateActivity extends AppCompatActivity {
         comment = findViewById(R.id.commentValue);
         Button updateButton = findViewById( R.id.addButton);
         retrieveData();
+        datePicker();
+        timePicker();
+
+
+
 
         record = recordsArrayList.get(index);
 
@@ -68,8 +84,6 @@ public class UpdateActivity extends AppCompatActivity {
             // the boolean variable turns to be true then
             // only the user must be proceed to the activity2
             if (isAllFieldsChecked) {
-                String dateStr = date.getText().toString();
-                String timeStr = time.getText().toString();
                 int sysInt = Integer.parseInt(systolic.getText().toString());
                 int diasInt = Integer.parseInt(diastolic.getText().toString());
                 int heartInt = Integer.parseInt(heartRate.getText().toString());
@@ -78,9 +92,10 @@ public class UpdateActivity extends AppCompatActivity {
 
                 //recordsArrayList.add(record);
                 recordsArrayList.set(index,record);
-                Toast.makeText(this,"Saving Records...",Toast.LENGTH_SHORT).show();
                 PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
                 saveData();
+                Toast.makeText(UpdateActivity.this,"Updated successfully!",Toast.LENGTH_SHORT).show();
+
                 //MainActivity.recyclerView.getAdapter().notifyDataSetChanged();
                // MainActivity.recyclerView.setAdapter(MainActivity.recordAdapter);
 
@@ -93,6 +108,8 @@ public class UpdateActivity extends AppCompatActivity {
         });
 
     }
+
+
 
     private boolean CheckAllFields() {
         if (date.length() == 0) {
@@ -148,6 +165,54 @@ public class UpdateActivity extends AppCompatActivity {
         // after all validation return true if all required fields are inserted.
         return true;
     }
+    private void datePicker()
+    {
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(UpdateActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, onDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                dateStr = dayOfMonth + "-" + (month + 1) + "-" + year;
+                date.setText(dateStr);
+            }
+        };
+    }
+    private void timePicker() {
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                int hour =calendar.get(Calendar.HOUR_OF_DAY);
+                int minute =calendar.get(Calendar.MINUTE);
+                //calendar.clear();
+                TimePickerDialog dialog =  new TimePickerDialog(UpdateActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timeStr = hour + ":" +minute;
+                        time.setText(timeStr);
+
+                    }
+                }, hour , minute,true);
+                //  dialog.setTitle("Select Time");
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+    }
+
     private void retrieveData()
     {
         sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
