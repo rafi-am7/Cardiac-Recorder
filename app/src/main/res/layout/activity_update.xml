@@ -37,7 +37,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:paddingLeft="5dp"
-            android:id="@+id/dateValue"
+            android:id="@+id/uDateValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg_thick"
@@ -64,7 +64,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:paddingLeft="5dp"
-            android:id="@+id/timeValue"
+            android:id="@+id/uTimeValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg_thick"
@@ -90,7 +90,7 @@
         <EditText
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:id="@+id/systolicValue"
+            android:id="@+id/uSystolicValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg_thick"
@@ -118,7 +118,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:paddingLeft="5dp"
-            android:id="@+id/diastolicValue"
+            android:id="@+id/uDiastolicValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg_thick"
@@ -144,7 +144,7 @@
         <EditText
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:id="@+id/heartRateValue"
+            android:id="@+id/uHeartRateValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg_thick"
@@ -172,7 +172,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:paddingLeft="5dp"
-            android:id="@+id/commentValue"
+            android:id="@+id/uCommentValue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg_thick"
@@ -197,7 +197,7 @@
             tools:ignore="MissingConstraints">
 
                 <Button
-                    android:id="@+id/addButton"
+                    android:id="@+id/updateButton"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:background="?android:attr/selectableItemBackground"
