@@ -51,7 +51,7 @@ public class AddActivity extends AppCompatActivity {
         heartRate = findViewById(R.id.heartRateValue);
         comment = findViewById(R.id.commentValue);
 
-        saveButton = findViewById( R.id.addButton);
+        saveButton = findViewById( R.id.saveButton);
 
         retrieveData();
        // datePicker();
@@ -81,8 +81,6 @@ public class AddActivity extends AppCompatActivity {
                 Toast.makeText(AddActivity.this,"Record added successfully!",Toast.LENGTH_SHORT).show();
                 PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
                 saveData();
-
-
                 finish();
             }
         });

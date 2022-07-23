@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/screen_background"
-    tools:context=".AddActivity">
+    tools:context=".AddActivity"
+    android:id="@+id/addActivity">
 
     <TextView
         android:id="@+id/header"
@@ -202,7 +203,7 @@
         tools:ignore="MissingConstraints">
 
         <Button
-            android:id="@+id/addButton"
+            android:id="@+id/saveButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="24sp"
