@@ -17,22 +17,17 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 @LargeTest
 
-
 public class StartingActivityTest {
 
     @Rule
-    public ActivityScenarioRule<StartingActivity> activityRule = new ActivityScenarioRule<StartingActivity> (StartingActivity.class);
+    public ActivityScenarioRule<StartingActivity> startingActivityActivityScenarioRule = new ActivityScenarioRule<StartingActivity>(StartingActivity.class);
 
-    /**
-     * UI test for splash screen
-     */
     @Test
-    public void testSplashScreenText()
-    {
-
+    public void testSplashScreen() {
         onView(withId(R.id.ic_logo)).check(matches(isDisplayed()));
         onView(withText("Cardiac Recorder")).check(matches(isDisplayed()));
-
     }
+
+
 
 }
