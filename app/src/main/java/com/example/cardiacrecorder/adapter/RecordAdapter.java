@@ -1,9 +1,7 @@
 package com.example.cardiacrecorder.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.ApplicationErrorReport;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cardiacrecorder.AddActivity;
 import com.example.cardiacrecorder.R;
 import com.example.cardiacrecorder.Record;
-import com.example.cardiacrecorder.UpdateActivity;
 
 import java.util.ArrayList;
 
@@ -89,13 +85,13 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
         });
 
-        if (record.getDiastolic()<80) holder.diastolicTextView.setTextColor(Color.parseColor("#FF018786"));
-        else if(record.getDiastolic()<=89) holder.diastolicTextView.setTextColor(Color.parseColor("#3C96DD"));
+        if (record.getDiastolic()>59 && record.getDiastolic() < 91) holder.diastolicTextView.setTextColor(Color.parseColor("#FF018786"));
+        else if(record.getDiastolic()>39 && record.getDiastolic() < 121) holder.diastolicTextView.setTextColor(Color.parseColor("#3C96DD"));
         else holder.diastolicTextView.setTextColor(Color.parseColor("#C3473E"));
 
 
-        if (record.getSystolic()<120) holder.systolicTextView.setTextColor(Color.parseColor("#FF018786"));
-        else if(record.getSystolic()<=139) holder.systolicTextView.setTextColor(Color.parseColor("#3C96DD"));
+        if (record.getSystolic()>89 && record.getSystolic()<141) holder.systolicTextView.setTextColor(Color.parseColor("#FF018786"));
+        else if(record.getSystolic()>59 && record.getSystolic()<181) holder.systolicTextView.setTextColor(Color.parseColor("#3C96DD"));
         else holder.systolicTextView.setTextColor(Color.parseColor("#C3473E"));
 
 

@@ -22,6 +22,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -49,11 +51,11 @@ public class AddActivity extends AppCompatActivity {
         heartRate = findViewById(R.id.heartRateValue);
         comment = findViewById(R.id.commentValue);
 
-        saveButton = findViewById( R.id.addButton);
+        saveButton = findViewById( R.id.saveButton);
 
         retrieveData();
-        datePicker();
-        timePicker();
+       // datePicker();
+     //   timePicker();
 
         saveButton.setOnClickListener(v -> {
 
@@ -65,12 +67,13 @@ public class AddActivity extends AppCompatActivity {
             // only the user must be proceed to the activity2
 
             if (isAllFieldsChecked) {
-
+                String dateString = date.getText().toString();
+                String timeString = time.getText().toString();
                 int sysInt = Integer.parseInt(systolic.getText().toString());
                 int diasInt = Integer.parseInt(diastolic.getText().toString());
                 int heartInt = Integer.parseInt(heartRate.getText().toString());
                 String commentStr = comment.getText().toString();
-                record = new Record(dateStr,timeStr,sysInt,diasInt,heartInt,commentStr);
+                record = new Record(dateString,timeString,sysInt,diasInt,heartInt,commentStr);
 
                 recordsArrayList.add(record);
                 MainActivity.recordsArrayList.add(record);
@@ -78,8 +81,6 @@ public class AddActivity extends AppCompatActivity {
                 Toast.makeText(AddActivity.this,"Record added successfully!",Toast.LENGTH_SHORT).show();
                 PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
                 saveData();
-
-
                 finish();
             }
         });
@@ -108,7 +109,7 @@ public class AddActivity extends AppCompatActivity {
 
         String s1 = systolic.getText().toString();
         int n1 = Integer.parseInt(s1);
-        if(n1<0)
+        if(n1<0 || n1>300)
         {
             systolic.setError("Invalid data input");
             return false;
@@ -119,9 +120,23 @@ public class AddActivity extends AppCompatActivity {
             return false;
         }
 
+        String formatDate = "^(0[1-9]|[12][0-9]|3[01]|[1-9])\\/(0[1-9]|1[0-2]|[1-9])\\/([12][0-9]{3})$";
+        String formatTime = "^([01][0-9]|2[0-3])\\:([0-5][0-9])";
+        String dateString = date.getText().toString();
+        String timeString = time.getText().toString();
+        Matcher matcherObj = Pattern.compile(formatDate).matcher(dateString);
+        if (!matcherObj.matches()){
+            date.setError("Please input in 'dd/mm/yyyy' format");
+            return false;
+        }
+        Matcher matcherObj2 = Pattern.compile(formatTime).matcher(timeString);
+        if (!matcherObj2.matches()){
+            time.setError("Please input in 'hh:mm' format");
+            return false;
+        }
         String s2 = diastolic.getText().toString();
         int n2 = Integer.parseInt(s2);
-        if(n2<0)
+        if(n2<0 || n2>200)
         {
             diastolic.setError("Invalid data input");
             return false;
@@ -135,7 +150,7 @@ public class AddActivity extends AppCompatActivity {
         String s3 = heartRate.getText().toString();
         int n3 = Integer.parseInt(s3);
 
-        if(n3<0)
+        if(n3<0 || n3>150)
         {
             heartRate.setError("Invalid data input");
             return false;
