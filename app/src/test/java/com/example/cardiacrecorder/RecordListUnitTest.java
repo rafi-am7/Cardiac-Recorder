@@ -8,6 +8,10 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class RecordListUnitTest {
+
+    /**
+     * testing addRecord method
+     */
     @Test
     public void testAddRecord() {
         RecordList recordList = new RecordList();
@@ -23,6 +27,9 @@ public class RecordListUnitTest {
         assertTrue(recordList.sortRecords().contains(record2));
     }
 
+    /**
+     * testing deleteRecord method
+     */
     @Test
     public void testDeleteRecord() {
         RecordList recordList = new RecordList();
@@ -46,6 +53,9 @@ public class RecordListUnitTest {
         assertFalse(recordList.sortRecords().contains(record2));
     }
 
+    /**
+     * testing addRecord method for exceptions
+     */
     @Test
     public void testAddRecordException() {
         RecordList recordList = new RecordList();
@@ -55,6 +65,9 @@ public class RecordListUnitTest {
         assertThrows(IllegalArgumentException.class, () -> recordList.addRecord(record1));
     }
 
+    /**
+     * testing deleteRecord method for exceptions
+     */
     @Test
     public void testDeleteRecordException() {
         RecordList recordList = new RecordList();
@@ -66,6 +79,9 @@ public class RecordListUnitTest {
         assertThrows(IllegalArgumentException.class, () -> recordList.deleteRecord(record1));
     }
 
+    /**
+     * testing sortRecords method
+     */
     @Test
     public void testSortRecords() {
         RecordList recordList = new RecordList();

@@ -133,7 +133,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         String s1 = systolic.getText().toString();
         int n1 = Integer.parseInt(s1);
-        if(n1<0)
+        if(n1<0 || n1>300)
         {
             systolic.setError("Invalid data input");
             return false;
@@ -146,7 +146,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         String s2 = diastolic.getText().toString();
         int n2 = Integer.parseInt(s2);
-        if(n2<0)
+        if(n2<0 || n2>200)
         {
             diastolic.setError("Invalid data input");
             return false;
@@ -160,7 +160,7 @@ public class UpdateActivity extends AppCompatActivity {
         String s3 = heartRate.getText().toString();
         int n3 = Integer.parseInt(s3);
 
-        if(n3<0)
+        if(n3<0 || n3>150)
         {
             heartRate.setError("Invalid data input");
             return false;
