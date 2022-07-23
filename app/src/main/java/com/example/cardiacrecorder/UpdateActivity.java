@@ -23,6 +23,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UpdateActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -53,8 +55,8 @@ public class UpdateActivity extends AppCompatActivity {
         comment = findViewById(R.id.commentValue);
         Button updateButton = findViewById( R.id.addButton);
         retrieveData();
-        datePicker();
-        timePicker();
+
+
 
 
 
@@ -77,6 +79,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         updateButton.setOnClickListener(v -> {
 
+
             // store the returned value of the dedicated function which checks
             // whether the entered data is valid or if any fields are left blank.
             isAllFieldsChecked = CheckAllFields();
@@ -84,11 +87,13 @@ public class UpdateActivity extends AppCompatActivity {
             // the boolean variable turns to be true then
             // only the user must be proceed to the activity2
             if (isAllFieldsChecked) {
+                String dateString = date.getText().toString();
+                String timeString = time.getText().toString();
                 int sysInt = Integer.parseInt(systolic.getText().toString());
                 int diasInt = Integer.parseInt(diastolic.getText().toString());
                 int heartInt = Integer.parseInt(heartRate.getText().toString());
                 String commentStr = comment.getText().toString();
-                record = new Record(dateStr,timeStr,sysInt,diasInt,heartInt,commentStr);
+                record = new Record(dateString,timeString,sysInt,diasInt,heartInt,commentStr);
 
                 //recordsArrayList.add(record);
                 recordsArrayList.set(index,record);
@@ -130,7 +135,20 @@ public class UpdateActivity extends AppCompatActivity {
             systolic.setError("This field is required");
             return false;
         }
-
+        String formatDate = "^(0[1-9]|[12][0-9]|3[01]|[1-9])\\/(0[1-9]|1[0-2]|[1-9])\\/([12][0-9]{3})$";
+        String formatTime = "^([01][0-9]|2[0-3])\\:([0-5][0-9])";
+        String dateString = date.getText().toString();
+        String timeString = time.getText().toString();
+        Matcher matcherObj = Pattern.compile(formatDate).matcher(dateString);
+        if (!matcherObj.matches()){
+            date.setError("Please input in 'dd/mm/yyyy' format");
+            return false;
+        }
+        Matcher matcherObj2 = Pattern.compile(formatTime).matcher(timeString);
+        if (!matcherObj2.matches()){
+            time.setError("Please input in 'hh:mm' format");
+            return false;
+        }
         String s1 = systolic.getText().toString();
         int n1 = Integer.parseInt(s1);
         if(n1<0 || n1>300)
