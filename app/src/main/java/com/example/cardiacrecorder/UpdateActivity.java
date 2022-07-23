@@ -47,13 +47,13 @@ public class UpdateActivity extends AppCompatActivity {
         int index = intent.getIntExtra("index",0);
         //Toast.makeText(UpdateActivity.this,""+index,Toast.LENGTH_SHORT).show();
 
-        date = findViewById(R.id.dateValue);
-        time = findViewById(R.id.timeValue);
-        systolic = findViewById(R.id.systolicValue);
-        diastolic = findViewById(R.id.diastolicValue);
-        heartRate = findViewById(R.id.heartRateValue);
-        comment = findViewById(R.id.commentValue);
-        Button updateButton = findViewById( R.id.addButton);
+        date = findViewById(R.id.uDateValue);
+        time = findViewById(R.id.uTimeValue);
+        systolic = findViewById(R.id.uSystolicValue);
+        diastolic = findViewById(R.id.uDiastolicValue);
+        heartRate = findViewById(R.id.uHeartRateValue);
+        comment = findViewById(R.id.uCommentValue);
+        Button updateButton = findViewById( R.id.updateButton);
         retrieveData();
 
 
