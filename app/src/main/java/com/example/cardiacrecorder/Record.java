@@ -3,8 +3,7 @@ package com.example.cardiacrecorder;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Record implements Parcelable {
-    //class elements
+public class Record implements Parcelable, Comparable<Record>{
     private String date="01/01/2000";
     private String time="00.00";
     private int systolic=0;
@@ -117,5 +116,10 @@ public class Record implements Parcelable {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public int compareTo(Record record) {
+        return this.date.compareTo(record.getDate());
     }
 }

@@ -1,7 +1,5 @@
 package com.example.cardiacrecorder;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -17,12 +15,16 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UpdateActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -53,8 +55,8 @@ public class UpdateActivity extends AppCompatActivity {
         comment = findViewById(R.id.commentValue);
         Button updateButton = findViewById( R.id.addButton);
         retrieveData();
-        datePicker();
-        timePicker();
+
+
 
 
 
@@ -77,6 +79,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         updateButton.setOnClickListener(v -> {
 
+
             // store the returned value of the dedicated function which checks
             // whether the entered data is valid or if any fields are left blank.
             isAllFieldsChecked = CheckAllFields();
@@ -84,14 +87,18 @@ public class UpdateActivity extends AppCompatActivity {
             // the boolean variable turns to be true then
             // only the user must be proceed to the activity2
             if (isAllFieldsChecked) {
+                String dateString = date.getText().toString();
+                String timeString = time.getText().toString();
                 int sysInt = Integer.parseInt(systolic.getText().toString());
                 int diasInt = Integer.parseInt(diastolic.getText().toString());
                 int heartInt = Integer.parseInt(heartRate.getText().toString());
                 String commentStr = comment.getText().toString();
-                record = new Record(dateStr,timeStr,sysInt,diasInt,heartInt,commentStr);
+                record = new Record(dateString,timeString,sysInt,diasInt,heartInt,commentStr);
 
                 //recordsArrayList.add(record);
                 recordsArrayList.set(index,record);
+                MainActivity.recordsArrayList.set(index,record);
+                MainActivity.recordAdapter.notifyDataSetChanged();
                 PreferenceManager.getDefaultSharedPreferences(this).edit().clear().commit();
                 saveData();
                 Toast.makeText(UpdateActivity.this,"Updated successfully!",Toast.LENGTH_SHORT).show();
@@ -100,8 +107,6 @@ public class UpdateActivity extends AppCompatActivity {
                // MainActivity.recyclerView.setAdapter(MainActivity.recordAdapter);
 
 
-                Intent i = new Intent(UpdateActivity.this, MainActivity.class);
-                startActivity(i);
                 finish();
 
             }
@@ -110,7 +115,11 @@ public class UpdateActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * This method if for validation of user input
+     * @return
+     *      returns true when user inserts valid data. otherwise returns false
+     */
     private boolean CheckAllFields() {
         if (date.length() == 0) {
             date.setError("This field is required");
@@ -126,10 +135,23 @@ public class UpdateActivity extends AppCompatActivity {
             systolic.setError("This field is required");
             return false;
         }
-
+        String formatDate = "^(0[1-9]|[12][0-9]|3[01]|[1-9])\\/(0[1-9]|1[0-2]|[1-9])\\/([12][0-9]{3})$";
+        String formatTime = "^([01][0-9]|2[0-3])\\:([0-5][0-9])";
+        String dateString = date.getText().toString();
+        String timeString = time.getText().toString();
+        Matcher matcherObj = Pattern.compile(formatDate).matcher(dateString);
+        if (!matcherObj.matches()){
+            date.setError("Please input in 'dd/mm/yyyy' format");
+            return false;
+        }
+        Matcher matcherObj2 = Pattern.compile(formatTime).matcher(timeString);
+        if (!matcherObj2.matches()){
+            time.setError("Please input in 'hh:mm' format");
+            return false;
+        }
         String s1 = systolic.getText().toString();
         int n1 = Integer.parseInt(s1);
-        if(n1<0)
+        if(n1<0 || n1>300)
         {
             systolic.setError("Invalid data input");
             return false;
@@ -142,7 +164,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         String s2 = diastolic.getText().toString();
         int n2 = Integer.parseInt(s2);
-        if(n2<0)
+        if(n2<0 || n2>200)
         {
             diastolic.setError("Invalid data input");
             return false;
@@ -156,7 +178,7 @@ public class UpdateActivity extends AppCompatActivity {
         String s3 = heartRate.getText().toString();
         int n3 = Integer.parseInt(s3);
 
-        if(n3<0)
+        if(n3<0 || n3>150)
         {
             heartRate.setError("Invalid data input");
             return false;
@@ -165,6 +187,10 @@ public class UpdateActivity extends AppCompatActivity {
         // after all validation return true if all required fields are inserted.
         return true;
     }
+
+    /**
+     * Method for getting a date from user through date picker
+     */
     private void datePicker()
     {
         date.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +215,10 @@ public class UpdateActivity extends AppCompatActivity {
             }
         };
     }
+
+    /**
+     * Method for getting a time from user through time picker
+     */
     private void timePicker() {
         time.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,7 +230,7 @@ public class UpdateActivity extends AppCompatActivity {
                 TimePickerDialog dialog =  new TimePickerDialog(UpdateActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        timeStr = hour + ":" +minute;
+                        timeStr = hourOfDay + ":" +minute;
                         time.setText(timeStr);
 
                     }
@@ -213,6 +243,9 @@ public class UpdateActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * method for retrieving data from shared preference
+     */
     private void retrieveData()
     {
         sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
@@ -225,6 +258,10 @@ public class UpdateActivity extends AppCompatActivity {
             recordsArrayList = new ArrayList<>();
         }
     }
+
+    /**
+     * method for saving data to shared preference
+     */
     private void saveData()
     {
         sharedPreferences = getSharedPreferences("shared",MODE_PRIVATE);
