@@ -1,26 +1,15 @@
 package com.example.cardiacrecorder;
 
-import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
 
-import static java.util.regex.Pattern.matches;
-
-import android.app.Fragment;
-
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.action.ViewActions;
-
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
-import androidx.test.rule.ActivityTestRule;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -41,14 +30,14 @@ public class MainActivityTest {
         /*
         To update data
          */
-        onView(withId(R.id.dateValue)).perform(ViewActions.typeText("12/10/2021"));
-        onView(withId(R.id.timeValue)).perform(ViewActions.typeText("10:19"));
-        onView(withId(R.id.systolicValue)).perform(ViewActions.typeText("120"));
-        onView(withId(R.id.diastolicValue)).perform(ViewActions.typeText("90"));
+        onView(withId(R.id.aDateValue)).perform(ViewActions.typeText("12/10/2021"));
+        onView(withId(R.id.aTimeValue)).perform(ViewActions.typeText("10:19"));
+        onView(withId(R.id.aSystolicValue)).perform(ViewActions.typeText("120"));
+        onView(withId(R.id.aDiastolicValue)).perform(ViewActions.typeText("90"));
         pressBack();
-        onView(withId(R.id.heartRateValue)).perform(ViewActions.typeText("69"));
-        pressBack();
-        onView(withId(R.id.commentValue)).perform(ViewActions.typeText("UI test data insert"));
+        onView(withId(R.id.aHeartRateValue)).perform(ViewActions.typeText("69"));
+        //pressBack();
+        onView(withId(R.id.aCommentValue)).perform(ViewActions.typeText("UI test data insert"));
         pressBack();
         onView(withId(R.id.saveButton)).perform(click());
 
@@ -60,7 +49,7 @@ public class MainActivityTest {
          */
             // First scroll to the position that needs to be matched and click on it.
            onView(ViewMatchers.withId(R.id.rvRecords))
-                    .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+                    .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         onView(withId(R.id.backButton)).perform(click());
 
 
@@ -90,10 +79,10 @@ public class MainActivityTest {
       /*
         To delete data ; delete shows unusal behaviors
         */
-/*
+
         onView(withId(R.id.rvRecords)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, MyViewAction.clickChildViewWithId(R.id.deleteIm)));
-*/
+                RecyclerViewActions.actionOnItemAtPosition(0, MyViewAction.clickChildViewWithId(R.id.deleteIm)));
+
 
 
     }

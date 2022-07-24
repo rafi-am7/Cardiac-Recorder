@@ -23,7 +23,7 @@ public class MyViewAction {
 
             @Override
             public void perform(UiController uiController, View view) {
-                View v = view.findViewById(R.id.editIm);
+                View v = view.findViewById(id);
                 v.performClick();
             }
         };
