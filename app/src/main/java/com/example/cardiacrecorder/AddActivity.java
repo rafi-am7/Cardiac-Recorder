@@ -44,13 +44,12 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        date = findViewById(R.id.dateValue);
-        time = findViewById(R.id.timeValue);
-        systolic = findViewById(R.id.systolicValue);
-        diastolic = findViewById(R.id.diastolicValue);
-        heartRate = findViewById(R.id.heartRateValue);
-        comment = findViewById(R.id.commentValue);
-
+        date = findViewById(R.id.aDateValue);
+        time = findViewById(R.id.aTimeValue);
+        systolic = findViewById(R.id.aSystolicValue);
+        diastolic = findViewById(R.id.aDiastolicValue);
+        heartRate = findViewById(R.id.aHeartRateValue);
+        comment = findViewById(R.id.aCommentValue);
         saveButton = findViewById( R.id.saveButton);
 
         retrieveData();

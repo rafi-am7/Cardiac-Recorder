@@ -26,14 +26,14 @@ public class AddActivityTest {
     @Test
     public void testInput() {
 
-        onView(withId(R.id.dateValue)).perform(ViewActions.typeText("12/10/2021"));
-        onView(withId(R.id.timeValue)).perform(ViewActions.typeText("10:19"));
-        onView(withId(R.id.systolicValue)).perform(ViewActions.typeText("120"));
-        onView(withId(R.id.diastolicValue)).perform(ViewActions.typeText("90"));
+        onView(withId(R.id.aDateValue)).perform(ViewActions.typeText("12/10/2021"));
+        onView(withId(R.id.aTimeValue)).perform(ViewActions.typeText("10:19"));
+        onView(withId(R.id.aSystolicValue)).perform(ViewActions.typeText("120"));
+        onView(withId(R.id.aDiastolicValue)).perform(ViewActions.typeText("90"));
         pressBack();
-        onView(withId(R.id.heartRateValue)).perform(ViewActions.typeText("69"));
+        onView(withId(R.id.aHeartRateValue)).perform(ViewActions.typeText("69"));
         pressBack();
-        onView(withId(R.id.commentValue)).perform(ViewActions.typeText("UI test data insert"));
+        onView(withId(R.id.aCommentValue)).perform(ViewActions.typeText("UI test data insert"));
         pressBack();
         //pressBack();
 

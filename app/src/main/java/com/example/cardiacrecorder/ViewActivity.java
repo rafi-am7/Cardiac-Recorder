@@ -32,12 +32,12 @@ public class ViewActivity extends AppCompatActivity {
         int index = intent.getIntExtra("index",0);
         //Toast.makeText(UpdateActivity.this,""+index,Toast.LENGTH_SHORT).show();
 
-        date = findViewById(R.id.dateValue);
-        time = findViewById(R.id.timeValue);
-        systolic = findViewById(R.id.systolicValue);
-        diastolic = findViewById(R.id.diastolicValue);
-        heartRate = findViewById(R.id.heartRateValue);
-        comment = findViewById(R.id.commentValue);
+        date = findViewById(R.id.vDateValue);
+        time = findViewById(R.id.vTimeValue);
+        systolic = findViewById(R.id.vSystolicValue);
+        diastolic = findViewById(R.id.vDiastolicValue);
+        heartRate = findViewById(R.id.vHeartRateValue);
+        comment = findViewById(R.id.vCommentValue);
         Button backButton = findViewById( R.id.backButton);
         retrieveData();
 

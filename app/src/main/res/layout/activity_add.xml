@@ -37,7 +37,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:paddingLeft="5dp"
-        android:id="@+id/dateValue"
+        android:id="@+id/aDateValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg_thick"
@@ -65,7 +65,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:paddingLeft="5dp"
-        android:id="@+id/timeValue"
+        android:id="@+id/aTimeValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
@@ -92,7 +92,7 @@
     <EditText
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:id="@+id/systolicValue"
+        android:id="@+id/aSystolicValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
@@ -121,7 +121,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:paddingLeft="5dp"
-        android:id="@+id/diastolicValue"
+        android:id="@+id/aDiastolicValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
@@ -148,7 +148,7 @@
     <EditText
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:id="@+id/heartRateValue"
+        android:id="@+id/aHeartRateValue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg_thick"
@@ -175,7 +175,7 @@
     <EditText
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:id="@+id/commentValue"
+        android:id="@+id/aCommentValue"
         android:layout_width="fill_parent"
         android:layout_height="120dp"
         android:background="@drawable/button_bg_thick"
@@ -191,7 +191,7 @@
         app:layout_constraintTop_toBottomOf="@+id/comment" />
 
     <FrameLayout
-        android:id="@+id/updateFrameLayout"
+        android:id="@+id/addFrameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_text_field"
