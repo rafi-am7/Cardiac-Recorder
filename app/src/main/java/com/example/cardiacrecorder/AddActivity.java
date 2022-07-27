@@ -124,6 +124,7 @@ public class AddActivity extends AppCompatActivity {
         String dateString = date.getText().toString();
         String timeString = time.getText().toString();
         Matcher matcherObj = Pattern.compile(formatDate).matcher(dateString);
+
         if (!matcherObj.matches()){
             date.setError("Please input in 'dd/mm/yyyy' format");
             return false;

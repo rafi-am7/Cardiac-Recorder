@@ -68,7 +68,7 @@ public class Record implements Parcelable, Comparable<Record>{
         }
     };
 
-    //Getters
+
     public String getDate() {
         return date;
     }
@@ -77,13 +77,16 @@ public class Record implements Parcelable, Comparable<Record>{
         return time;
     }
 
+
     public int getSystolic() {
         return systolic;
     }
 
+
     public int getDiastolic() {
         return diastolic;
     }
+
 
     public int getHeartRate() {
         return heartRate;
@@ -93,31 +96,63 @@ public class Record implements Parcelable, Comparable<Record>{
         return comment;
     }
 
-    //Setters
+
+
+    /**
+     * setter for date
+     * @param date
+     */
     public void setDate(String date) {
         this.date = date;
     }
 
+    /**
+     * setter for time
+     * @param time
+     */
     public void setTime(String time) {
         this.time = time;
     }
 
+    /**
+     * setter for systolic
+     * @param systolic
+     */
     public void setSystolic(int systolic) {
         this.systolic = systolic;
     }
 
+    /**
+     * setter for diastolic
+     * @param diastolic
+     */
     public void setDiastolic(int diastolic) {
         this.diastolic = diastolic;
     }
 
+    /**
+     * setter for heart_rate
+     * @param heart_rate
+     */
     public void setHeart_rate(int heart_rate) {
         this.heartRate = heart_rate;
     }
 
+    /**
+     * setter for comment
+     * @param comment
+     */
     public void setComment(String comment) {
         this.comment = comment;
     }
 
+    /**
+     * function for comparison between dates for comparable
+     * @param record
+     * comparing records
+     * @return
+     *  returns 1 when greater, otherwise 0
+     */
     @Override
     public int compareTo(Record record) {
         return this.date.compareTo(record.getDate());

@@ -65,6 +65,11 @@ ImageView addButton;
                 saveData();
                 Toast.makeText(MainActivity.this,"Deleted successful!",Toast.LENGTH_SHORT).show();
             }
+
+            /**
+             * creating a function for heading to  update activity when eedit button is pressed
+             * @param position
+             */
             @Override
             public void onEditClick(int position) {
 
