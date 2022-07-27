@@ -61,6 +61,7 @@ ImageView addButton;
             public void onDeleteClick(int position) {
                 recordsArrayList.remove(position);
                 recordAdapter.notifyItemRemoved(position);
+                recordAdapter.notifyItemRangeChanged(position,recordsArrayList.size());
                 saveData();
                 Toast.makeText(MainActivity.this,"Deleted successful!",Toast.LENGTH_SHORT).show();
             }
