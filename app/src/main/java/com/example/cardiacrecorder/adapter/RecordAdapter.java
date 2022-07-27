@@ -102,6 +102,10 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
     }
 
+    /**
+     * function for getting number of saved records
+     * @return
+     */
     @Override
     public int getItemCount() {
         return recordList.size();

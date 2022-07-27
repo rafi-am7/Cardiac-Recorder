@@ -2,21 +2,9 @@ package com.example.cardiacrecorder;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Handler;
-import android.view.View;
-import android.window.SplashScreen;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.cardiacrecorder.databinding.ActivityStartingBinding;
 
 public class StartingActivity extends AppCompatActivity {
 
@@ -26,15 +14,24 @@ public class StartingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
         //getSupportActionBar().hide();
-        new Handler().postDelayed(new Runnable() {
-                                                  @Override
-                                                  public void run() {
-                                                      i = new Intent(StartingActivity.this, MainActivity.class);
-                                                      startActivity(i);
-                                                      finish();
-                                                  }
-                                              },3000);
+        delayGeneration();
 
+
+    }
+
+    /**
+     * method for generating delay
+     */
+    private void delayGeneration() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                i = new Intent(StartingActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+
+        },3000);
     }
 
 
