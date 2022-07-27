@@ -24,11 +24,13 @@ public class MainActivityTest {
     @Rule
     public ActivityScenarioRule<MainActivity> mainActivityActivityScenarioRule = new ActivityScenarioRule<>(MainActivity.class);
 
+
+
     @Test
-    public void addButtonTest() {
+    public void allActivityTest() {
         onView(withId(R.id.addButton)).perform(click());
         /*
-        To update data
+        To insert data
          */
         onView(withId(R.id.aDateValue)).perform(ViewActions.typeText("12/10/2021"));
         onView(withId(R.id.aTimeValue)).perform(ViewActions.typeText("10:19"));
@@ -77,14 +79,15 @@ public class MainActivityTest {
         onView(withId(R.id.updateButton)).perform(click());
 
       /*
-        To delete data ; delete shows unusal behaviors
+        To delete data ;
         */
 
         onView(withId(R.id.rvRecords)).perform(
                 RecyclerViewActions.actionOnItemAtPosition(0, MyViewAction.clickChildViewWithId(R.id.deleteIm)));
 
 
-
     }
+
+
 
 }
