@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * this class to to create an array list for records
+ */
+
 public class RecordList {
     private List<Record> records = new ArrayList<>();
 
@@ -33,15 +37,10 @@ public class RecordList {
         }
     }
 
-    /*public void updateRecord (Record old_record,Record new_record) {
-        old_record = new_record;
-    }
-    public void fetchListromDB () {
-    }*/
 
     /**
      * This method is for returning a sorted list
-      * @return
+     * @return
      *      returns a sorted list of records
      */
     public List<Record> sortRecords() {

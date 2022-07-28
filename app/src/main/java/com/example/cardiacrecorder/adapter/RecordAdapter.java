@@ -96,7 +96,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
 
         if (record.getHeartRate()>60 && record.getHeartRate()<100) holder.heartTextView.setTextColor(Color.parseColor("#FF018786"));
-        else if(record.getHeartRate()>=40) holder.heartTextView.setTextColor(Color.parseColor("#3C96DD"));
+        else if(record.getHeartRate()>=40 && record.getHeartRate()<=120) holder.heartTextView.setTextColor(Color.parseColor("#3C96DD"));
         else holder.heartTextView.setTextColor(Color.parseColor("#C3473E"));
 
 
