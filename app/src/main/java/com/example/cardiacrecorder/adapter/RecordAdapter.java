@@ -62,7 +62,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             @Override
             public void onClick(View v) {
                 if (mCustomClickListener != null) {
-                   // int position = holder.getAbsoluteAdapterPosition();
+                    //int position = holder.getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         mCustomClickListener.onEditClick(position);
                     }
@@ -74,7 +74,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             @Override
             public void onClick(View v) {
                 if (mCustomClickListener != null) {
-               //    int position = holder.getAbsoluteAdapterPosition();
+                   // int position = holder.getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         mCustomClickListener.onDeleteClick(position);
                     }
@@ -102,10 +102,6 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
     }
 
-    /**
-     * function for getting number of saved records
-     * @return
-     */
     @Override
     public int getItemCount() {
         return recordList.size();
@@ -147,13 +143,13 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
         @Override
         public void onClick(View view) {
-            mCustomClickListener.customOnClick(getAbsoluteAdapterPosition(), view);  //position and view setting to provide to mainactivity
+            mCustomClickListener.customOnClick(getAdapterPosition(), view);  //position and view setting to provide to mainactivity
         }
 
 
         public boolean onLongClick(View view) {
 
-            mCustomClickListener.customOnLongClick(getAbsoluteAdapterPosition(), view);  //position and view setting to provide to mainactivity
+            mCustomClickListener.customOnLongClick(getAdapterPosition(), view);  //position and view setting to provide to mainactivity
             return true;
 
         }
