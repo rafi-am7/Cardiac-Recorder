@@ -30,4 +30,8 @@
 ## Project Screenshots
 <img src="https://user-images.githubusercontent.com/70595051/181581453-0a66f04b-0ff4-4377-a20e-93d7eb1f9106.jpg" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/181581691-9c8076d7-b8fa-4916-9b90-e1f70e792f62.jpg" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/181581898-3b56dce9-f994-4b72-bd54-cc9b7e425e67.jpg" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/181582060-ed6bc696-c117-4472-b23a-ba804253842b.jpg" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/181582235-e01a7add-34a4-4fd3-86da-a694165397fd.jpg" width="180" height="400">
 
+## Appliction Functionalities
+https://user-images.githubusercontent.com/70595051/181719954-22537eb1-857a-4354-9fbf-d601d0268d0c.mp4
+
+
 

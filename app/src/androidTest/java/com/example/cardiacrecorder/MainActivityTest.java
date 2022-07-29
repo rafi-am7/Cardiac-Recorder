@@ -38,7 +38,7 @@ public class MainActivityTest {
         onView(withId(R.id.aDiastolicValue)).perform(ViewActions.typeText("90"));
         pressBack();
         onView(withId(R.id.aHeartRateValue)).perform(ViewActions.typeText("69"));
-        //pressBack();
+        pressBack();
         onView(withId(R.id.aCommentValue)).perform(ViewActions.typeText("UI test data insert"));
         pressBack();
         onView(withId(R.id.saveButton)).perform(click());
